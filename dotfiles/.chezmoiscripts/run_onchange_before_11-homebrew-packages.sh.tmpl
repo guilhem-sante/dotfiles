@@ -1,0 +1,43 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/usr/bin/env bash
+
+{{ template "shared_script_utils.bash" . }}
+
+export HOMEBREW_NO_INSTALL_UPGRADE=TRUE
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export HOMEBREW_NO_INSTALL_CLEANUP=1
+
+formulae=(
+    {{ range $package := .packages.homebrew.common.formulae }}
+    "{{ $package }}"
+    {{ end }}
+)
+
+casks=(
+    {{ range $package := .packages.homebrew.common.casks }}
+    "{{ $package }}"
+    {{ end }}
+)
+
+currently_installed_formulae=($(brew list --formula -1))
+currently_installed_casks=($(brew list --cask -1))
+
+header "Install Homebrew packages"
+
+brew update
+
+BREW_DIR="$(brew --prefix)/bin/"
+
+for formula in ${formulae[@]}; do
+    if ! _inArray_ -i "${formula}" "${currently_installed_formulae[@]}"; then
+        if [[ ! -e "${BREW_DIR}/${formula}" ]]; then
+            brew install -q --formula ${formula}
+        fi
+    fi
+done
+
+success "Homebrew packages installed"
+
+_safeExit_
+
+{{- end }}
