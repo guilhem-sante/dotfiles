@@ -1,0 +1,6 @@
+[user]
+  name = Guilhem Santé
+  email = {{ .email }}
+
+[github]
+   user = {{ .github_user }}
