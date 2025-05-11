@@ -1,10 +1,14 @@
 [packages.apt]
     to_remove = []
     [packages.apt.common]
-        packages = []
+        packages = [
+            "starship"
+        ]
 
 [packages.homebrew]
     to_remove = []
     [packages.homebrew.common]
     casks = []
-    formulae = []
+    formulae = [
+        "starship"
+    ]
