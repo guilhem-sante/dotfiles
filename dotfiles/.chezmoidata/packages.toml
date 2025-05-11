@@ -1,0 +1,6 @@
+[packages.apt]
+    to_remove = []
+    [packages.apt.common]
+        packages = [
+            "moo"
+        ]
