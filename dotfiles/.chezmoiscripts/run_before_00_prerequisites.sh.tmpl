@@ -48,11 +48,11 @@ done
 # Install missing packages
 if ${install}; then
     header "Updating package list"
-    sudo apt update
+    apt update
 
     for pkg in "${to_install[@]}"; do
         header "Installing ${pkg}"
-        sudo apt install -y "${pkg}"
+        apt install -y "${pkg}"
     done
 fi
 
