@@ -1,10 +1,10 @@
 [user]
   name        = {{ .full_name }}
-  email       = {{ .email }}
-  signingKey  = A3BDB0FDF7784AAC
+  email       = {{ .github.email }}
+  signingKey  = {{ .github.gpg_key }}
 
 [github]
-   user = {{ .github_user }}
+   user = {{ .github.user }}
 
 [commit]
   gpgSign = true
