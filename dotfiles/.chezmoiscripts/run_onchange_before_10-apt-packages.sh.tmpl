@@ -11,7 +11,7 @@ packages=(
 )
 
 header "Installing packages with apt"
-apt-get update
+sudo apt-get update
 
 for package in "${packages[@]}"; do
     if dpkg-query -l | awk {'print $2'} | grep -E "^${package}$" &>/dev/null; then
