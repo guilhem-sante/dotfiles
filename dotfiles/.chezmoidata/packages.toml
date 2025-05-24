@@ -2,6 +2,7 @@
     to_remove = []
     [packages.apt.common]
         packages = [
+            "gh",
             "starship"
         ]
 
@@ -10,5 +11,7 @@
     [packages.homebrew.common]
     casks = []
     formulae = [
-        "starship"
+        "gh",
+        "starship",
+        "commitizen"
     ]
