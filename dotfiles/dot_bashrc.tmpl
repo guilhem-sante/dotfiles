@@ -87,8 +87,5 @@ fi
 
 {{ template "commonrc.sh.tmpl" . }}
 
-#
-# Starship (https://starship.rs/) Configuration
-#
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
+# Enable Starship (https://starship.rs/) hook
 eval "$(starship init bash)"
