@@ -1,10 +1,11 @@
-[user]
-  name        = {{ .full_name }}
-  email       = {{ .github.email }}
-  signingKey  = {{ .github.gpg_key }}
+[includeIf "hasconfig:remote.*.url:https://github.com/**"]
+  path = ~/.config/git/github/config
 
-[github]
-   user = {{ .github.user }}
+[includeIf "hasconfig:remote.*.url:git@github.com:*/**"]
+  path = ~/.config/git/github/config
 
-[commit]
-  gpgSign = true
+[includeIf "hasconfig:remote.*.url:https://gitlab.com/*/**"]
+  path = ~/.config/git/gitlab/config
+
+[includeIf "hasconfig:remote.*.url:git@gitlab.com:*/**"]
+  path = ~/.config/git/gitlab/config

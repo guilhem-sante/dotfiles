@@ -1,0 +1,10 @@
+[user]
+  name          = {{ .full_name }}
+  email         = {{ .gitlab.email }}
+  signingKey    = {{ .gitlab.gpg_key }}
+
+[gitlab]
+   user = {{ .gitlab.user }}
+
+[commit]
+  gpgSign   = true
